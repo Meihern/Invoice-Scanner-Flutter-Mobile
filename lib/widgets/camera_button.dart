@@ -19,12 +19,18 @@ class CameraButton extends StatelessWidget {
                 content: Text("Choose a source option"),
                 actions: [
                   FlatButton(
-                    child: Text("Camera"),
-                    onPressed: () => BlocProvider.of<MainBloc>(context).add(MainAppSendImageEvent(imageSource: "Camera")),
+                    child: const Text("Camera"),
+                    onPressed: () => {
+                      BlocProvider.of<MainBloc>(context).add(MainAppSendImageEvent(imageSource: "Camera")),
+                      Navigator.of(context, rootNavigator: true).pop()
+                    }
                   ),
                   FlatButton(
-                    child: Text("Gallery"),
-                    onPressed: () => BlocProvider.of<MainBloc>(context).add(MainAppSendImageEvent(imageSource: "Gallery")),
+                    child: const Text("Gallery"),
+                    onPressed: () => {
+                      BlocProvider.of<MainBloc>(context).add(MainAppSendImageEvent(imageSource: "Gallery")),
+                      Navigator.of(context, rootNavigator: true).pop()
+                    },
                   )
                 ],
               );

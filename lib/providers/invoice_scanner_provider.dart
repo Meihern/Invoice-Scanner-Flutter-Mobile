@@ -21,17 +21,6 @@ class InvoiceScannerProvider{
   Future<ClientModel> recognizeClientDetailFromImage(File imageFile) async{
       String uploadImageUrl = UPLOAD_IMG_URL;
       String fileName = imageFile.path.split('/').last;
-      print(fileName);
-      print(imageFile.path);
-      /*final formDataBody = new FormData.fromMap({
-         "uploadedfile": MultipartFile.fromBytes(await imageFile.readAsBytes(), filename: fileName),
-        });
-      print(formDataBody.fields);
-      print("TEEEST");
-      final Dio dio = Dio();
-      print("TEEEST Dio instanciation");
-      final Response result = await dio.post(uploadImageUrl, data: formDataBody);
-      print("TEEEST Dio Posting");*/
       var request = http.MultipartRequest('POST', Uri.parse(uploadImageUrl));
       request.files.add(
         http.MultipartFile.fromBytes(
