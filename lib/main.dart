@@ -5,6 +5,7 @@ import 'package:mobile_app_invoice_scanner/providers/invoice_scanner_provider.da
 import 'package:mobile_app_invoice_scanner/screens/error_screen.dart';
 import 'package:mobile_app_invoice_scanner/screens/home_details_screen.dart';
 import 'package:mobile_app_invoice_scanner/screens/home_screen.dart';
+import 'package:mobile_app_invoice_scanner/shared/constants.dart';
 
 void main() {
   runApp(
@@ -27,8 +28,20 @@ class MainApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Scaffold(
+        backgroundColor: themePrimaryColor,
         appBar: AppBar(
-          title: Text("Invoice Scanner"),
+          title: Text(
+            'Invoice Scanner',
+            style: TextStyle(
+                color: themeGreyIshColor,
+                fontSize: 15.0,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 2
+            ),
+          ),
+          elevation: 0,
+          centerTitle: true,
+          backgroundColor: themePrimaryColor,
         ),
         body: BlocBuilder<MainBloc, MainState>(
           builder: (BuildContext context, MainState state) {
@@ -46,7 +59,9 @@ class MainApp extends StatelessWidget {
 
             return Center(
               child: Container(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(
+                  valueColor: new AlwaysStoppedAnimation<Color>(themeLightColor),
+                ),
               ),
             );
           }

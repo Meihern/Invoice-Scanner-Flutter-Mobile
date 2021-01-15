@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_app_invoice_scanner/blocs/main/main_bloc.dart';
+import 'package:mobile_app_invoice_scanner/shared/constants.dart';
 
 class ErrorScreen extends StatelessWidget {
   final String error;
@@ -19,22 +20,17 @@ class ErrorScreen extends StatelessWidget {
                     height: size.height * 0.5,
                   ),
                   Expanded(
-                    child: Text(
-                      "error : $error",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Expanded(
-                    child: Text(
-                      "Tap to try again ",
-                      style: TextStyle(
-                          color: Colors.black.withOpacity(.7),
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400),
-                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                      child: Text(
+                        "error : $error",
+                        style: TextStyle(
+                            color: themeLightColor,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center,
+                      ),
+                    )
                   ),
                   SizedBox(height: 5),
                   Container(
@@ -45,15 +41,15 @@ class ErrorScreen extends StatelessWidget {
                         onPressed:() => BlocProvider.of<MainBloc>(context)..add(MainAppStartedEvent()),
                         icon: Icon(
                           Icons.arrow_back,
-                          color: Colors.white,
-                          size: 40,
+                          color: themeGreyIshColor,
+                          size: 20,
                         ),
-                        label: Text("Back", style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.w500,fontSize: 30),),
+                        label: Text("GO BACK", style: TextStyle(
+                            color: themeGreyIshColor, fontWeight: FontWeight.w500,fontSize: 20),),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
-                        color: Colors.grey.withOpacity(.7),
+                        color: themeDarkColor,
                       ),
                     ),
                     alignment: Alignment.center,

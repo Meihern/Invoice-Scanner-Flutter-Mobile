@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_app_invoice_scanner/blocs/main/main_bloc.dart';
+import 'package:mobile_app_invoice_scanner/shared/constants.dart';
 
 class CameraButton extends StatelessWidget {
   @override
@@ -38,14 +39,14 @@ class CameraButton extends StatelessWidget {
           ),
           icon: Icon(
             Icons.camera_alt,
-            color: Colors.black.withOpacity(.7),
+            color: themeDarkColor,
           ),
-          label: Text("Upload Image ", style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.w600,fontSize: 20),),
+          label: Text("Upload Image", style: TextStyle(
+              color: themeDarkColor, fontWeight: FontWeight.w600,fontSize: 20),),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5),
           ),
-          color: Colors.grey.withOpacity(.7),
+          color: themeLightColor,
         ),
       ),
       alignment: Alignment.center,
